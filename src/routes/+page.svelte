@@ -2,22 +2,23 @@
 	import { Button } from "$lib/components/ui/button/index";
 	import * as Card from "$lib/components/ui/card/index";
 
-
+    let { data } = $props();
 </script>
 
 <ul>
-    <li> 
+    {#each data.band_members as band_member}
+    <li>
         <Card.Root>
             <Card.Header>
                 <Card.Title>
-                    Schuba's Tavern
+                    {band_member.name}
                 </Card.Title>
                 <Card.Description>
-                    June 11th, 2025
+                    {band_member.primary_instrument}
                 </Card.Description>
             </Card.Header>
             <Card.Content>
-
+                {band_member.email}
             </Card.Content>
             <Card.Footer>
                 <Button href="https://google.com">
@@ -26,4 +27,5 @@
             </Card.Footer>
         </Card.Root>
     </li>
+    {/each}
 </ul>
